@@ -14,5 +14,3 @@ stages:
     - job: maven_build_job
       steps:
         - template: maven_build_job.yml
-          parameters:
-            maven_pom_file_location: "MyWebApp/pom.xml"
