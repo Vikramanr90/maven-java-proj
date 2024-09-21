@@ -5,7 +5,7 @@ parameters:
 stages:
   - stage: ${{ parameters.build_stage_name }}
     jobs:
-      - job: ${{ arameters.build_job_name }}
+      - job: ${{ parameters.build_job_name }}
         steps:
         - task: Maven@3
           inputs:
