@@ -2,10 +2,12 @@ parameters:
   - name: maven_pom_file_location
     default: "MyWebApp/pom.xml"
 
-steps:
-  - task: Maven@3
-    inputs:
-      mavenPomFile: ${{ parameters.maven_pom_file_location }}
-      publishJUnitResults: true
-      testResultsFiles: '**/surefire-reports/TEST-*.xml'
-      goals: 'package'
+jobs:
+  - job:
+    steps:
+      - task: Maven@3
+        inputs:
+          mavenPomFile: ${{ parameters.maven_pom_file_location }}
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          goals: 'package'

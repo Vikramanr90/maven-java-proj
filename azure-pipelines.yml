@@ -11,6 +11,4 @@ stages:
       - bash: echo "hello world by vikram"
 - stage: maven_build_stage
   jobs:
-    - job: maven_build_job
-      steps:
-        - template: maven_build_job.yml
+    - template: maven_build_job.yml
