@@ -2,7 +2,7 @@ parameters:
   - name: pool
     type: object
     default:
-      pool: vikram-first-self-agent-pool
+      name: vikram-first-self-agent-pool
 
 jobs:
   - job: build_job_maven
