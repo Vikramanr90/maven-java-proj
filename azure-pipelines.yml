@@ -23,4 +23,4 @@ stages:
     - template: maven_build_job.yml
       parameters:
         pool:
-          vmImage: mac-latest
+          vmImage: ubuntu-latest
