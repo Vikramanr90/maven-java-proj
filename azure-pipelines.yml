@@ -7,12 +7,18 @@ stages:
 - stage: test_stage
   pool: vikram-first-self-agent-pool
   jobs:
-    - job: test_jobs
+    - job: test_jobs_1
       steps:
       - bash: echo "hello world by vikram"
+    - job: test_jobs_2
+      steps:
+      - bash: sleep 100
+    - job: test_jobs_3
+      steps:
+      - bash: sleep 100
 - stage: maven_build_stage
   jobs:
     - template: maven_build_job.yml
       parameters:
         pool:
-          vmImage: ubuntu-latest    
+          vmImage: ubuntu-latest
