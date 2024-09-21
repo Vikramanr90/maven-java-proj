@@ -6,9 +6,9 @@ parameters:
 
 jobs:
   - job: build_job_maven
+    pool: ${{ parameters.pool }}
     steps:
       - task: Maven@3
-        pool: ${{ parameters.pool }}
         inputs:
           mavenPomFile: MyWebApp/pom.xml
           publishJUnitResults: true
