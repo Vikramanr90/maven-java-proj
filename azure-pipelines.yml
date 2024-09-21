@@ -5,7 +5,8 @@ pool: vikram-first-self-agent-pool
 
 stages:
 - stage: test_stage
-  jobs: 
+  pool: vikram-first-self-agent-pool
+  jobs:
     - job: test_jobs
       steps:
       - bash: echo "hello world by vikram"
