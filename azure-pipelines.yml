@@ -11,6 +11,8 @@ stages:
       steps:
       - bash: echo "hello world by vikram"
     - job: test_jobs_2
+      pool:
+        vmImage: ubuntu-latest
       steps:
       - bash: sleep 100
     - job: test_jobs_3
