@@ -13,3 +13,6 @@ stages:
 - stage: maven_build_stage
   jobs:
     - template: maven_build_job.yml
+      parameters:
+        pool:
+          vmImage: ubuntu-latest    
