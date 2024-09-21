@@ -1,13 +1,16 @@
 parameters:
-  - name: maven_pom_file_location
-    default: "MyWebApp/pom.xml"
+  - name: pool
+    type: object
+    default:
+      pool: vikram-first-self-agent-pool
 
 jobs:
-  - job:
+  - job: build_job_maven
     steps:
       - task: Maven@3
+        pool: ${{ parameters.pool }}
         inputs:
-          mavenPomFile: ${{ parameters.maven_pom_file_location }}
+          mavenPomFile: MyWebApp/pom.xml
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           goals: 'package'
