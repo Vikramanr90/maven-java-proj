@@ -10,3 +10,6 @@ stages:
       steps:
       - bash: echo "hello world by vikram"
 - template: maven_build_job.yml
+  parameters:
+    build_stage_name: parameter_build_stage
+    build_job_name  : parameter_build_job
