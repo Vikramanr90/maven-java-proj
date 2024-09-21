@@ -11,6 +11,8 @@ stages:
       - bash: echo "hello world by vikram"
 - stage: maven_build_stage
   jobs:
-    - template: maven_build_job.yml
-      parameters:
-        build_job_name  : parameter_build_job
+    - job: maven_build_job
+      steps:
+        - template: maven_build_job.yml
+          parameters:
+            maven_pom_file_location: "MyWebApp/pom.xml"

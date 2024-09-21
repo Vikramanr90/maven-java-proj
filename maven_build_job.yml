@@ -1,12 +1,10 @@
 parameters:
-  build_job_name: ''
+  maven_pom_file_location: ''
 
-jobs:
-  - job: ${{ parameters.build_job_name }}
-    steps:
-    - task: Maven@3
-      inputs:
-        mavenPomFile: MyWebApp/pom.xml
-        publishJUnitResults: true
-        testResultsFiles: '**/surefire-reports/TEST-*.xml'
-        goals: 'package'
+steps:
+  - task: Maven@3
+    inputs:
+      mavenPomFile: ${{ parameters.maven_pom_file_location }}
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      goals: 'package'
