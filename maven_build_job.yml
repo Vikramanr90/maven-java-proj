@@ -1,15 +1,12 @@
 parameters:
-  build_stage_name: ''
   build_job_name: ''
 
-stages:
-  - stage: ${{ parameters.build_stage_name }}
-    jobs:
-      - job: ${{ parameters.build_job_name }}
-        steps:
-        - task: Maven@3
-          inputs:
-            mavenPomFile: MyWebApp/pom.xml
-            publishJUnitResults: true
-            testResultsFiles: '**/surefire-reports/TEST-*.xml'
-            goals: 'package'
+jobs:
+  - job: ${{ parameters.build_job_name }}
+    steps:
+    - task: Maven@3
+      inputs:
+        mavenPomFile: MyWebApp/pom.xml
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        goals: 'package'

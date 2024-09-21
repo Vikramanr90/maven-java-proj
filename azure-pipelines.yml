@@ -9,7 +9,8 @@ stages:
     - job: test_jobs
       steps:
       - bash: echo "hello world by vikram"
-- template: maven_build_job.yml
-  parameters:
-    build_stage_name: parameter_build_stage
-    build_job_name  : parameter_build_job
+- stage: maven_build_stage
+  jobs:
+    - template: maven_build_job.yml
+      parameters:
+        build_job_name  : parameter_build_job
