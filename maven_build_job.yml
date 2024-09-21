@@ -1,0 +1,15 @@
+parameters:
+  build_stage_name: ''
+  build_job_name: ''
+
+stages:
+  - stage: $(parameter.build_stage_name)
+    jobs:
+      - job: $(parameter.build_job_name)
+        steps:
+        - task: Maven@3
+          inputs:
+            mavenPomFile: MyWebApp/pom.xml
+            publishJUnitResults: true
+            testResultsFiles: '**/surefire-reports/TEST-*.xml'
+            goals: 'package'

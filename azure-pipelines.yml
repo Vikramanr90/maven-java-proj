@@ -8,14 +8,5 @@ stages:
   jobs: 
     - job: test_jobs
       steps:
-      - bash: echo "hello world vikram"
-- stage: maven_build_stage
-  jobs:
-    - job: maven_build_job
-      steps:
-      - task: Maven@3
-        inputs:
-          mavenPomFile: MyWebApp/pom.xml
-          publishJUnitResults: true
-          testResultsFiles: '**/surefire-reports/TEST-*.xml'
-          goals: 'package'
+      - bash: echo "hello world by vikram"
+- template: maven_build_job.yml
